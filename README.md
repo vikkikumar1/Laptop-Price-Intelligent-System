@@ -44,7 +44,7 @@ An end-to-end Machine Learning project that predicts laptop prices based on spec
 ## 🌐 Live Demo
 
 - 🔗 API: https://laptop-price-api-dwz3.onrender.com/docs
-- 🔗 App: https://your-streamlit-link
+- 🔗 App: https://vikkikumar1-laptop-price-intelligent-system-frontendapp-emjqsi.streamlit.app/
 
 ---
 
