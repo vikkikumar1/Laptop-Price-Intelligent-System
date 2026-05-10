@@ -44,7 +44,7 @@ ppi = st.number_input(
 st.caption("💡 Typical PPI: 100–300 (higher = sharper display)")
 
 # ✅ MUST match training columns
-cpu = st.selectbox('CPU', df['Cpu brand'].unique())
+cpu = st.selectbox('CPU', df['Cpu'].unique())
 gpu = st.selectbox('GPU', df['Gpu'].apply(lambda x: x.split()[0]).unique())
 os_type = st.selectbox('Operating System', df['OpSys'].unique())
 
@@ -58,8 +58,19 @@ if st.button('Predict Price'):
     # Convert categorical inputs
     touchscreen_val = 1 if touchscreen == 'Yes' else 0
     ips_val = 1 if ips == 'Yes' else 0
+    # Convert CPU to Cpu brand (same as training)
+    if "i7" in cpu:
+        cpu_brand = "Intel Core i7"
+    elif "i5" in cpu:
+        cpu_brand = "Intel Core i5"
+    elif "i3" in cpu:
+        cpu_brand = "Intel Core i3"
+    elif "Intel" in cpu:
+        cpu_brand = "Other Intel"
+    else:
+        cpu_brand = "AMD Processor"
 
-    # Prepare data for API
+    # Prepare data for API  
     data = {
         "company": company,
         "type": type_name,
@@ -68,7 +79,7 @@ if st.button('Predict Price'):
         "touchscreen": touchscreen_val,
         "ips": ips_val,
         "ppi": ppi,
-        "cpu": cpu,
+        "cpu": cpu_brand,
         "hdd": hdd,
         "ssd": ssd,
         "gpu": gpu,
