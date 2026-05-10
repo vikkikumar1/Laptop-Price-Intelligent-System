@@ -50,17 +50,58 @@ An end-to-end Machine Learning project that predicts laptop prices based on spec
 
 ## ⚙️ Run Locally
 
+
+### 1️⃣ Clone the repository
+
 ```bash
-git clone https://github.com/your-username/project.git
-cd project
+git clone https://github.com/vikkikumar1/Laptop-Price-Intelligent-System.git
+cd Laptop-Price-Intelligent-System
+```
+
+---
+
+### 2️⃣ Create virtual environment (recommended)
+
+```bash
+python -m venv venv
+venv\Scripts\activate   # Windows
+```
+
+---
+
+### 3️⃣ Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-# Train model
+---
+
+### 4️⃣ Train the model (optional if .pkl exists)
+
+```bash
 python model/train.py
+```
 
-# Run API
+---
+
+### 5️⃣ Run FastAPI backend
+
+```bash
 uvicorn app.main:app --reload
+```
 
-# Run UI
+👉 API will run at:
+http://127.0.0.1:8000/docs
+
+---
+
+### 6️⃣ Run Streamlit frontend
+
+```bash
 cd frontend
 streamlit run app.py
+```
+
+👉 App will run at:
+http://localhost:8501
