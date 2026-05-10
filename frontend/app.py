@@ -7,7 +7,7 @@ import os
 st.set_page_config(page_title="Laptop Price Predictor", layout="centered")
 
 # 🔴 REPLACE THIS WITH YOUR ACTUAL RENDER API URL
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = "https://laptop-price-api-dwz3.onrender.com/predict"
 
 # ================= LOAD DATA =================
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
