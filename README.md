@@ -1,4 +1,4 @@
-# 💻 Laptop Price Predictor
+# 💻 Laptop Price Predictor 
 
 An end-to-end Machine Learning project that predicts laptop prices based on specifications.
 
