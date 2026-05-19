@@ -6,7 +6,7 @@ import os
 # ================= CONFIG =================
 st.set_page_config(page_title="Laptop Price Predictor", layout="centered")
 
-# 🔴 REPLACE THIS WITH YOUR ACTUAL RENDER API URL
+# My Actual Render API URL
 API_URL = "https://laptop-price-api-dwz3.onrender.com/predict"
 
 # ================= LOAD DATA =================
@@ -19,8 +19,8 @@ def load_data():
 df = load_data()
 
 # ================= UI =================
-st.title("💻 Laptop Price Predictor")
-st.write("🌐 Powered by FastAPI Backend")
+st.title(" Laptop Price Predictor")
+st.write(" Powered by FastAPI Backend")
 
 # ================= INPUT =================
 
@@ -33,7 +33,7 @@ weight = st.number_input('Weight (kg)', min_value=0.5, max_value=5.0, value=1.5)
 touchscreen = st.selectbox('Touchscreen', ['No', 'Yes'])
 ips = st.selectbox('IPS Display', ['No', 'Yes'])
 
-# ✅ Direct PPI input
+# Direct PPI input
 ppi = st.number_input(
     'PPI (Pixels Per Inch)',
     min_value=50.0,
@@ -41,9 +41,9 @@ ppi = st.number_input(
     value=150.0
 )
 
-st.caption("💡 Typical PPI: 100–300 (higher = sharper display)")
+st.caption(" Typical PPI: 100–300 (higher = sharper display)")
 
-# ✅ MUST match training columns
+#  training columns
 cpu = st.selectbox('CPU', df['Cpu'].unique())
 gpu = st.selectbox('GPU', df['Gpu'].apply(lambda x: x.split()[0]).unique())
 os_type = st.selectbox('Operating System', df['OpSys'].unique())
@@ -94,12 +94,12 @@ if st.button('Predict Price'):
             price = result.get("predicted_price", None)
 
             if price:
-                st.success(f"💰 Estimated Price: ₹ {price}")
+                st.success(f"Estimated Price: ₹ {price}")
             else:
-                st.error("❌ Unexpected API response format")
+                st.error(" Unexpected API response format")
 
         else:
-            st.error(f"❌ API Error: {response.status_code}")
+            st.error(f" API Error: {response.status_code}")
 
     except Exception as e:
-        st.error("❌ Could not connect to API. Please check backend deployment.")
+        st.error(" Could not connect to API. Please check backend deployment.")

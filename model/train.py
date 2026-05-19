@@ -57,7 +57,7 @@ def preprocess(df):
     df['Gpu brand'] = df['Gpu'].apply(lambda x: x.split()[0])
     df.drop(columns=['Gpu'], inplace=True)
 
-    # ---------- MEMORY (FULL FIX 🔥) ----------
+    # ---------- MEMORY ----------
     def extract_storage(x):
         hdd = 0
         ssd = 0
@@ -136,14 +136,14 @@ def train():
     # ---------- Evaluation ----------
     y_pred = pipe.predict(X_test)
 
-    print("📊 Model Performance:")
+    print(" Model Performance:")
     print("R2 Score:", round(r2_score(y_test, y_pred), 3))
     print("MAE:", round(mean_absolute_error(y_test, y_pred), 3))
 
     # ---------- Save ----------
     pickle.dump(pipe, open(os.path.join(BASE_DIR,'model','pipe.pkl'),'wb'))
 
-    print("✅ Model trained and saved successfully!")
+    print(" Model trained and saved successfully!")
 
 # ================= MAIN =================
 if __name__ == "__main__":
